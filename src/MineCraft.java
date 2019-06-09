@@ -35,15 +35,15 @@ public class MineCraft extends MCWindow {
         float clear = 0f;
 		glClearColor(clear, clear, clear, 1);
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
-		//glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST );
-		//glEnable( GL_POLYGON_SMOOTH );
+		glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST );
+		glEnable( GL_POLYGON_SMOOTH );
 		glEnable(GL_CULL_FACE);
 		glFrontFace(GL_CW);
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		/*glFogi (GL_FOG_MODE, GL_LINEAR );
+		glFogi (GL_FOG_MODE, GL_LINEAR );
 		FloatBuffer fb = BufferUtils.createFloatBuffer(4);
 		fb.put(0).put(0).put(0).put(1).flip();
 		glFog(GL_FOG_COLOR, fb);
@@ -51,9 +51,9 @@ public class MineCraft extends MCWindow {
 		glHint(GL_FOG_HINT, GL_DONT_CARE);
 		glFogf(GL_FOG_START, (float)MCBlock.SIDE * ((LZ-G)*2/3+G) );
 		glFogf(GL_FOG_END, (float)MCBlock.SIDE * (LZ*1.33f));
-		glEnable (GL_FOG);*/
+		glEnable (GL_FOG);
 
-		//MCMaterial.setMaterial( MCMaterial.NORM );
+		MCMaterial.setMaterial( MCMaterial.NORM );
         
         gen = new MCMapGen(LX, LY, LZ);
         genMap();
@@ -67,18 +67,18 @@ public class MineCraft extends MCWindow {
         
 		update(1);
 		display();
-		//System.gc();
-		//setFullscreen(true);
+		System.gc();
+		setFullscreen(true);
 
 	}
     
     public void genMap(){
         
-        /*double GL = 0.1 + 0.4*Math.random();
+        double GL = 0.1 + 0.4*Math.random();
         double PE = 0.25 + 0.5*Math.random();
         int OCT = (int)(2+20*Math.random());
         
-        System.out.println(GL + " " + PE + " " + OCT);*/
+        System.out.println(GL + " " + PE + " " + OCT);
         
         //, (int)(LZ*GL), 7, 0.4);
 		gen.genMap();
@@ -173,7 +173,7 @@ public class MineCraft extends MCWindow {
 
 		p.setCamera();
 		light.setPos(p.x,p.y, 2 * LZ * MCBlock.SIDE);
-		//light.update();
+		light.update();
  		g.render(p);
  		trans.render(p);
 		trans.floodWater();
@@ -185,9 +185,9 @@ public class MineCraft extends MCWindow {
 
 		m.start();
 
-		/*new Thread(new Runnable(){public void run(){m.start();}}).start();
+		new Thread(new Runnable(){public void run(){m.start();}}).start();
 		System.out.println(m.getHeight() + " " + m.getWidth());
 		m.setFullscreen(true);
-		System.out.println(m.getHeight() + " " + m.getWidth());*/
+		System.out.println(m.getHeight() + " " + m.getWidth());
 	}
 }
