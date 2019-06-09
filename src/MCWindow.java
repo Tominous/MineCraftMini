@@ -49,7 +49,7 @@ public class MCWindow{
 		timer.update();
 		fpsTimer.update();
 
-		//setFullscreen(true);
+		setFullscreen(true);
 
 		while (!Display.isCloseRequested()) {
             
@@ -96,7 +96,7 @@ public class MCWindow{
 							freq = current.getFrequency();
 							area = current.getWidth() * current.getHeight();
 						}
-					//System.out.println(current.getWidth()  + " " +  current.getHeight());
+					System.out.println(current.getWidth()  + " " +  current.getHeight());
 				}
 
 				if(targetDisplayMode != null){
@@ -106,7 +106,7 @@ public class MCWindow{
 
 			} else
 				targetDisplayMode = new DisplayMode(width, height);
-			//System.out.println(targetDisplayMode.getWidth()  + " " +  targetDisplayMode.getHeight());
+			System.out.println(targetDisplayMode.getWidth()  + " " +  targetDisplayMode.getHeight());
 
 			if (targetDisplayMode == null) {
 				System.out.println("Failed to find value mode: "+width+"x"+height+" fs="+fullscreen);
